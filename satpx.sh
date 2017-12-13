@@ -2,21 +2,21 @@
 blue() { printf "\n\033[0;34m $* \033[0m\n\n" && (echo $* >> /tmp/SATPX.log) ;}
 red() { printf "\n\033[0;31m $* \033[0m\n\n" && (echo ERROR: $* >> /tmp/SATPX.log) ;}
 
-echo "SATPX started $(date)" >> /tmp/SATPX.log
+echo "SATPX iniciado $(date)" >> /tmp/SATPX.log
 chmod 777 /tmp/SATPX.log
 
-pacman -S --noconfirm --needed dialog || (echo "Erro na inicialização do script: Você está certo que está rodando isso como usuário root? Você se certificou que têm uma conexão com a internet?" && exit)
+pacman -S --noconfirm --needed dialog || (echo "Erro na inicializacaoo do script: Voce esta certo que esta rodando isso como usuario root? Voce se certificou que tem uma conexao com a internet?" && exit)
 
-dialog --title "Bem Vindo!" --msgbox "Bem vindo ao Script do Timóteo para produção extrema!\n\nEste script irá instalar automáticamente um desktop completo no Arch Linux utilizando o i3wm, que utilizo como meu ambiente de desenvolvimento principal.\n\n-Timóteo" 10 60
+dialog --title "Bem Vindo!" --msgbox "Bem vindo ao Script do Timoteo para producao extrema!\n\nEste script ira instalar automaticamente um desktop completo no Arch Linux utilizando o i3wm, que utilizo como meu ambiente de desenvolvimento principal.\n\n-Timoteo" 10 60
 
-dialog --no-cancel --inputbox "Primeiro, entre com o nome do seu usuário." 10 60 2> /tmp/.name
+dialog --no-cancel --inputbox "Primeiro, entre com o nome do seu usuario." 10 60 2> /tmp/.name
 
-dialog --no-cancel --passwordbox "Entre com uma senha para este usuário." 10 60 2> /tmp/.pass1
+dialog --no-cancel --passwordbox "Entre com uma senha para este usuario." 10 60 2> /tmp/.pass1
 dialog --no-cancel --passwordbox "Digite a senha novamente." 10 60 2> /tmp/.pass2
 
 while [ $(cat /tmp/.pass1) != $(cat /tmp/.pass2) ]
 do
-	dialog --no-cancel --passwordbox "Senhas não coencidem.\n\nEntre com a senha novamente." 10 60 2> /tmp/.pass1
+	dialog --no-cancel --passwordbox "Senhas nao coencidem.\n\nEntre com a senha novamente." 10 60 2> /tmp/.pass1
 	dialog --no-cancel --passwordbox "Digite a senha novamente." 10 60 2> /tmp/.pass2
 done
 
@@ -30,14 +30,14 @@ echo "$NAME:$(cat /tmp/.pass1)" | chpasswd
 shred -u /tmp/.pass1
 shred -u /tmp/.pass2
 
-cmd=(dialog --separate-output --checklist "Selecione pacotes adicionais para instalar com <ESPAÇO>" 22 76 16)
+cmd=(dialog --separate-output --checklist "Selecione pacotes adicionais para instalar com <ESPACO>" 22 76 16)
 options=(1 "Pacotes LaTeX" off
          2 "Libreoffice Suite" off
          3 "GIMP" off
          4 "Blender" off
 	 5 "Emacs" off
 	 6 "Transmission, cliente de bittorrent" off
-	 7 "Visualizadores de música" off
+	 7 "Visualizadores de musica" off
 	 )
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 echo $choices > /tmp/.choices
@@ -51,7 +51,7 @@ options=(1 "qutebrowser" off
 browch=$("${brow[@]}" "${options[@]}" 2>&1 >/dev/tty)
 echo $browch > /tmp/.browch
 
-dialog --title "Vamos começar!" --msgbox "O resto da instalação será totalmente automatizada, então pode ir tomar um café e relaxar!\n\nPoderá levar um tempo, dependendo da sua internet, mas quando acabar, você terá um sistema completamente instalado e funciona!\n\nAgora aperte <OK> e o sistema começará a instalação!" 13 60
+dialog --title "Vamos começar!" --msgbox "O resto da instalacao sera totalmente automatizada, entao pode ir tomar um cafe e relaxar!\n\nPodera levar um tempo, dependendo da sua internet, mas quando acabar, voce tera um sistema completamente instalado e funcional!\n\nAgora aperte <OK> e o sistema comecara a instalacao!" 13 60
 
 clear
 
@@ -89,7 +89,7 @@ EOF
 sleep .5
 
 
-blue \[1\/6\] Now installing main programs \(system basics\)...
+blue \[1\/6\] Instalando programas basicos...
 pacman --noconfirm --needed -Sy \
 	base-devel \
 	xorg-xinit \
@@ -109,10 +109,10 @@ pacman --noconfirm --needed -Sy \
  	dosfstools \
 	cups \
 	transset-df \
-	htop || (red Error installing system basics. Check your internet connection and pacman keyring.)
+	htop || (red Erro instalado os programas basicos. Verifique sua conexao com a internet.)
 
 
-blue \[2\/6\] Now installing main programs \(productivity\)...
+blue \[2\/6\] Instalando programas principais para \(produtividade\)...
 pacman --noconfirm --needed -Sy \
 	calcurse \
 	ranger \
@@ -121,10 +121,10 @@ pacman --noconfirm --needed -Sy \
 	poppler \
 	mupdf \
 	evince \
-	pandoc || (red Error installing productivity packages. Check your internet connection and pacman keyring.)
+	pandoc || (red Erro instalado os programas de produtividade. Verifique sua conexao com a internet.)
 
 
-blue \[3\/6\] Now installing main programs \(network and internet\)...
+blue \[3\/6\] Instalado os programas principais para \(rede e internet\)...
 pacman --noconfirm --needed -Sy \
 	wireless_tools \
 	network-manager-applet \
@@ -132,18 +132,18 @@ pacman --noconfirm --needed -Sy \
 	w3m \
 	offlineimap \
 	msmtp \
-	rsync || (red Error installing network packages. Check your internet connection and pacman keyring.)
+	rsync || (red Erro instalado os programas para redes e internet. Verifique sua conexao com a internet.)
 
 
-blue \[4\/6\] Now installing main programs \(graphics\)...
+blue \[4\/6\] Instalando os programas principais para \(graficos\)...
 pacman --noconfirm --needed -Sy \
 	feh \
 	imagemagick \
 	scrot \
-	libcaca || (red Error installing graphic packages. Check your internet connection and pacman keyring.)
+	libcaca || (red Erro instalado os programas para redes e internet. Verifique sua conexao com a internet.)
 
 
-blue \[5\/6\] Now installing main programs \(audio\)...
+blue \[5\/6\] Instalando os programas principais para \(audio\)...
 pacman --noconfirm --needed -Sy \
 	ffmpeg \
 	pulseaudio \
@@ -153,50 +153,50 @@ pacman --noconfirm --needed -Sy \
 	mpd \
 	ncmpcpp \
 	mediainfo \
-	mpv || (red Error installing audio packages. Check your internet connection and pacman keyring.)
+	mpv || (red Erro instalado os programas para redes e internet. Verifique sua conexao com a internet.)
 
 
-blue \[6\/6\] Now installing main programs \(devel\)...
+blue \[6\/6\] Instalando os programas principais para \(desenvolvimento\)...
 pacman --noconfirm --needed -Sy \
 	python-dbus \
 	python-gobject \
 	discount \
 	git \
 	r \
-	highlight || (red Error installing devel packages. Check your internet connection and pacman keyring.)
+	highlight || (red Erro instalado os programas para redes e internet. Verifique sua conexao com a internet.)
 
 
-pacman --noconfirm --needed -S fzf || (red Error with peripheral programs.)
+pacman --noconfirm --needed -S fzf || (red Erro com os programas perifericos.)
 
 for choice in $choices
 do
     case $choice in
         1)
-	    blue Now installing LaTeX packages...
+	    blue Instalando LaTeX packages...
 	    pacman --noconfirm --needed -S texlive-most texlive-lang biber
             ;;
         2)
-	    blue Now installing LibreOffice Suite...
+	    blue Instalando LibreOffice Suite...
 	    pacman --noconfirm --needed -S libreoffice-fresh
             ;;
         3)
-	    blue Now installing GIMP...
+	    blue Instalando GIMP...
 	    pacman --noconfirm --needed -S gimp
             ;;
         4)
-	    blue Now installing Blender...
+	    blue Instalando Blender...
 	    pacman --noconfirm --needed -S blender
             ;;
 	5)
-	    blue Now installing Emacs...
+	    blue Instalando Emacs...
 	    pacman --noconfirm --needed -S emacs
 	    ;;
 	6)
-	    blue Now installing transmission...
+	    blue Instalando transmission...
  	    pacman --noconfirm --needed -S transmission-cli
 	    ;;
 	7)
-	    blue Now installing visualizers and decoration...
+	    blue Instalando visualizers and decoration...
     	    pacman --noconfirm --needed -S projectm-pulseaudio cmatrix asciiquarium screenfetch
 	    ;;
     esac
@@ -206,15 +206,15 @@ for choice in $browch
 do
     case $choice in
         1)
-	    blue Now installing qutebrowser...
+	    blue Instalando qutebrowser...
 	    pacman --noconfirm --needed -S qutebrowser gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
             ;;
         2)
-            blue Now installing Firefox...
+            blue Instalando Firefox...
 	    pacman --noconfirm --needed -S firefox
             ;;
         3)
-            blue Now installing Firefox...
+            blue Instalando Firefox...
 	    pacman --noconfirm --needed -S firefox-nightly
             ;;
     esac
@@ -240,6 +240,6 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 blue Implementando arquivo sudoers temporario...
 curl https://raw.githubusercontent.com/Timoteohss/SATPX/master/sudoers > /etc/sudoers 
 
-dialog --title "Tudo pronto!" --msgbox "Parabens! Caso não tenha tido erros no caminho, o script foi completo com sucesso e todos os programas e configurações devem estar no lugar.\n\nPara execurar seu ambiente visual, deslogue e logue novamente no seu novo usuário, e então execute o comando \"startx\".\n\n-Timóteo" 12 80
+dialog --title "Tudo pronto!" --msgbox "Parabens! Caso nao tenha tido erros no caminho, o script foi completo com sucesso e todos os programas e configuracoes devem estar no lugar.\n\nPara execurar seu ambiente visual, deslogue e logue novamente no seu novo usuario, e entao execute o comando \"startx\".\n\n-Timoteo" 12 80
 clear
 
