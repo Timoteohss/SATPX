@@ -116,7 +116,7 @@ blue \[2\/6\] Instalando programas principais para \(produtividade\)...
 pacman --noconfirm --needed -Sy \
 	calcurse \
 	ranger \
-	vim \
+	gvim \
 	rofi \
 	poppler \
 	mupdf \
