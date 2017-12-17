@@ -92,8 +92,8 @@ do
 done
 
 blue Baixando arquivos de configuração...
-git clone https://github.com/lukesmithxyz/voidrice.git && rsync -va voidrice/ /home/$NAME && rm -rf voidrice
+git clone https://github.com/timoteohss/dotfiles.git && rsync -va dotfiles/ /home/$NAME && rm -rf dotfiles
 
-blue Generating bash/ranger/qutebrowser shortcuts...
+blue Gerando atalhos para o bash/ranger/qutebrowser...
 cd /home/$NAME/
 python /home/$NAME/.config/Scripts/shortcuts.py
