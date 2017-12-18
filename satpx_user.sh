@@ -85,6 +85,9 @@ browsers=$(cat /tmp/.browch)
 for choice in $browsers
 do
 	case $choice in
+        	3)
+	    		pacman --noconfirm --needed -S firefox-nightly
+            		;;
 		4)
 			aurcheck google-chrome
 			;;

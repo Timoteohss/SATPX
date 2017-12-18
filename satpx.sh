@@ -173,7 +173,7 @@ do
     case $choice in
         1)
 	    blue Instalando LaTeX packages...
-	    pacman --noconfirm --needed -S texlive-most texlive-lang biber
+	    pacman --noconfirm --needed -S texlive-most biber
             ;;
         2)
 	    blue Instalando LibreOffice Suite...
@@ -212,10 +212,6 @@ do
         2)
             blue Instalando Firefox...
 	    pacman --noconfirm --needed -S firefox
-            ;;
-        3)
-            blue Instalando Firefox...
-	    pacman --noconfirm --needed -S firefox-nightly
             ;;
     esac
 done
