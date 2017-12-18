@@ -100,6 +100,7 @@ pacman --noconfirm --needed -Sy \
 	noto-fonts-cjk \
 	noto-fonts-emoji \
 	rxvt-unicode \
+	playerctl \
 	unzip \
 	unrar \
 	wget \
