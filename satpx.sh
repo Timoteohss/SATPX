@@ -99,7 +99,7 @@ pacman --noconfirm --needed -Sy \
 	noto-fonts \
 	noto-fonts-cjk \
 	noto-fonts-emoji \
-	termite \
+	rxvt-unicode \
 	unzip \
 	unrar \
 	wget \
