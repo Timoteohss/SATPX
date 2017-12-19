@@ -44,9 +44,9 @@ choices=$(cat /tmp/.choices)
 for choice in $choices
 do
     case $choice in
-    1)
+    	1)
 		aurcheck vim-live-latex-preview
-        ;;
+       		;;
 	6)
 		aurcheck transmission-remote-cli-git
 		;;
@@ -86,7 +86,8 @@ for choice in $browsers
 do
 	case $choice in
         	3)
-	    		pacman --noconfirm --needed -S firefox-nightly
+		 	gpg --recv-key 0x61B7B526D98F0353 	
+			aurcheck firefox-nightly
             		;;
 		4)
 			aurcheck google-chrome
@@ -100,3 +101,6 @@ git clone https://github.com/timoteohss/dotfiles.git && rsync -va dotfiles/ /hom
 blue Gerando atalhos para o bash/ranger/qutebrowser...
 cd /home/$NAME/
 python /home/$NAME/.config/Scripts/shortcuts.py
+
+blue Obtendo os plugins do vim...
+git submodule add https://github.com/octol/vim-cpp-enhanced-highlight.git bundle/syntax/
