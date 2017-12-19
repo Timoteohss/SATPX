@@ -1,9 +1,13 @@
-# SATPX
-## Script's Automatizado do Timóteo para Produção Extrema
+# Script's Automatizado do Timóteo para Produção Extrema
 
 ![Imagem 1](img1.png)
 
 Uma coleção de scripts para instalar e configurar automáticamente um ambiente de trabalho com o objetivo de maximizar a produtividade. Seja como programador ou simples usuário comum.
+
+## O que preciso?
++ Uma instalação do Arch Linux, nova ou não.
++ Conexão com a internet
++ 30 minutos
 
 ## Sobre 
 
