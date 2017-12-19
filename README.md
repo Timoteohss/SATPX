@@ -29,3 +29,5 @@ Fortemente baseado pelo [Larbs](https://github.com/LukeSmithxyz/LARBS), preparei
 + Xcompmng para transparência de janelas
 + Pywal para mudar as cores do sistema inteiro baseado no plano de fundo
 + Uma porrada de scripts de automação
+
+![Imagem 2](img2.png)
