@@ -19,4 +19,13 @@ Fortemente baseado pelo [Larbs](https://github.com/LukeSmithxyz/LARBS), preparei
 
 [Siga as instruções da Wiki deste projeto](https://github.com/Timoteohss/SATPX/wiki/Arch-linux-para-iniciantes) para realizar a instalação do sistema em algum drive de seu disco e obter [minhas configurações automáticamente](https://github.com/Timoteohss/dotfiles).
 
-
+## Características desta instalação 
++ Gerenciamento de janelas pelo i3wm
++ Terminal Urxvt, capaz de múltiplas configurações dinâmicas
++ Vim como editor de texto principal
++ Ranger como navegador de arquivos que roda pelo terminal
++ Qutebrowser para acesso a internet sem mouse (opcional)
++ Spotify
++ Xcompmng para transparência de janelas
++ Pywal para mudar as cores do sistema inteiro baseado no plano de fundo
++ Uma porrada de scripts de automação
