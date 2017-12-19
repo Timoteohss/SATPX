@@ -1,4 +1,4 @@
-# Script's Automatizado do Timóteo para Produção Extrema
+# Script's Automatizados do Timóteo para Produção Extrema
 
 ![Imagem 1](img1.png)
 
